@@ -1,0 +1,514 @@
+﻿create database DATT_BITISSTORE;
+use DATT_BITISSTORE;
+
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!50503 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+
+
+DROP TABLE IF EXISTS `category`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `category` (
+  `id` bigint NOT NULL AUTO_INCREMENT,
+  `created_at` datetime(6) DEFAULT NULL,
+  `modified_at` datetime(6) DEFAULT NULL,
+  `name` varchar(300) NOT NULL,
+  `orders` int DEFAULT NULL,
+  `slug` varchar(255) NOT NULL,
+  `status` tinyint(1) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+
+LOCK TABLES `category` WRITE;
+/*!40000 ALTER TABLE `category` DISABLE KEYS */;
+INSERT INTO `category` VALUES (1,'2021-08-22 13:48:57.568000',NULL,'Giày Nam',0,'giay-nam',1),
+(2,'2021-08-22 13:49:02.889000',NULL,'Giày Nam',0,'giay-nam',1),
+(3,'2021-08-23 13:49:02.889000',NULL,'Giày Nữ',1,'giay-nu',1),
+(4,'2021-09-12 13:49:02.889000',NULL,'Giày Nam',0,'giay-nam',1),
+(5,'2021-08-62 13:49:02.889000',NULL,'Giày Nữ',0,'giay-nu',1),
+(6,'2021-09-12 13:49:02.889000',NULL,'Giày Nam',0,'giay-nam',1),
+(7,'2021-09-12 13:49:06.955000',NULL,'Giày Trẻ em',0,'giay-tre-em',1);
+/*!40000 ALTER TABLE `category` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!50503 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+
+
+DROP TABLE IF EXISTS `brand`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `brand` (
+  `id` bigint NOT NULL AUTO_INCREMENT,
+  `created_at` datetime(6) DEFAULT NULL,
+  `description` varchar(255) DEFAULT NULL,
+  `modified_at` datetime(6) DEFAULT NULL,
+  `name` varchar(255) NOT NULL,
+  `status` tinyint(1) DEFAULT NULL,
+  `thumbnail` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `UK_rdxh7tq2xs66r485cc8dkxt77` (`name`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `brand`
+--
+
+LOCK TABLES `brand` WRITE;
+/*!40000 ALTER TABLE `brand` DISABLE KEYS */;
+INSERT INTO `brand` VALUES (1,'2021-08-22 13:49:38.447000',NULL,NULL,'VANZ',1,'/media/static/6f1de8cc-84cd-4da8-9e73-1b27bbf0058d.jpg'),
+(2,'2021-08-22 13:49:47.368000',NULL,NULL,'CONVERSE',1,'/media/static/988dd7b0-5e8b-4707-a910-b9877970c071.png'),
+(3,'2021-08-22 13:49:56.351000',NULL,NULL,'ADIDAS',1,'/media/static/282930fb-ef57-407e-89b7-2cfdb5cf43a0.jpg'),
+(4,'2021-08-22 13:49:56.351000',NULL,NULL,'CONVERSE',1,'/media/static/282930fb-ef57-407e-89b7-2cfdb5cf43a0.jpg'),
+(5,'2021-08-22 13:49:56.351000',NULL,NULL,'ADIDAS',1,'/media/static/282930fb-ef57-407e-89b7-2cfdb5cf43a0.jpg'),
+(6,'2021-08-22 13:49:56.351000',NULL,NULL,'CONVERSE',1,'/media/static/282930fb-ef57-407e-89b7-2cfdb5cf43a0.jpg'),
+(7,'2021-08-22 13:49:56.351000',NULL,NULL,'ADIDAS',1,'/media/static/282930fb-ef57-407e-89b7-2cfdb5cf43a0.jpg'),
+(8,'2021-08-22 13:50:05.440000',NULL,NULL,'NIKE',1,'/media/static/b915dbe3-1aaa-4d3f-b14f-f716a3bad457.png');
+/*!40000 ALTER TABLE `brand` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+
+/
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!50503 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+
+DROP TABLE IF EXISTS `images`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `images` (
+  `id` varchar(255) NOT NULL,
+  `created_at` datetime(6) DEFAULT NULL,
+  `link` varchar(255) DEFAULT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `size` bigint DEFAULT NULL,
+  `type` varchar(255) DEFAULT NULL,
+  `created_by` bigint DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `UK_4mgw71qgyeud96uf8kgiu9fsw` (`link`),
+  KEY `FKp1m9f9rm7xy8nk7a820dvh6c4` (`created_by`),
+  CONSTRAINT `FKp1m9f9rm7xy8nk7a820dvh6c4` FOREIGN KEY (`created_by`) REFERENCES `users` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+LOCK TABLES `images` WRITE;
+/*!40000 ALTER TABLE `images` DISABLE KEYS */;
+INSERT INTO `images` VALUES ('0b4785c8-4aef-45fe-95a2-519b5ae63281','2021-08-22 13:54:59.371000','/media/static/0b4785c8-4aef-45fe-95a2-519b5ae63281.jpg','file',2352,'jpg',1),
+('1196c3f5-55fd-4ca3-8a9a-f815e59068c7','2021-08-22 13:56:04.033000','/media/static/1196c3f5-55fd-4ca3-8a9a-f815e59068c7.jpg','file',1664,'jpg',1)
+,('1da9ec1b-dce8-4cf5-a2db-569e8a35c895','2021-08-22 13:55:55.661000','/media/static/1da9ec1b-dce8-4cf5-a2db-569e8a35c895.jpg','file',3050,'jpg',1),
+('23846b4d-4790-4b04-b3ab-9b4e05f58ad8','2021-08-22 13:59:35.146000','/media/static/23846b4d-4790-4b04-b3ab-9b4e05f58ad8.jpg','file',523580,'jpg',1),
+('282930fb-ef57-407e-89b7-2cfdb5cf43a0','2021-08-22 13:49:34.935000','/media/static/282930fb-ef57-407e-89b7-2cfdb5cf43a0.jpg','file',37903,'jpg',1),
+('3192cffa-d1af-4b88-aa96-fb4654d2db2c','2021-08-22 13:51:19.755000','/media/static/3192cffa-d1af-4b88-aa96-fb4654d2db2c.jpg','file',1784,'jpg',1),
+('3bfe4266-cb35-4997-9cd1-b616a646f06d','2021-08-22 13:53:50.844000','/media/static/3bfe4266-cb35-4997-9cd1-b616a646f06d.jpg','file',2564,'jpg',1),
+('4c48ecde-7f9d-43ff-8e4a-33775902dbd9','2021-08-22 13:57:32.889000','/media/static/4c48ecde-7f9d-43ff-8e4a-33775902dbd9.jpg','file',278809,'jpg',1),
+('5666f43f-1b9d-4dfd-aaf0-d61e83d04929','2021-08-22 13:56:01.626000','/media/static/5666f43f-1b9d-4dfd-aaf0-d61e83d04929.jpg','file',3274,'jpg',1),
+('5d72dcda-30cf-4931-b7ab-5157fb04fb09','2021-08-22 13:53:48.030000','/media/static/5d72dcda-30cf-4931-b7ab-5157fb04fb09.jpg','file',2570,'jpg',1),
+('6f1de8cc-84cd-4da8-9e73-1b27bbf0058d','2021-08-22 13:49:26.663000','/media/static/6f1de8cc-84cd-4da8-9e73-1b27bbf0058d.jpg','file',40297,'jpg',1),
+('88c9783f-3bb0-4206-83a9-361f65d72fd1','2021-08-22 13:52:34.938000','/media/static/88c9783f-3bb0-4206-83a9-361f65d72fd1.jpg','file',1872,'jpg',1),
+('8b28fb59-6135-4edd-a9e9-62f2f489f041','2021-08-22 13:55:06.200000','/media/static/8b28fb59-6135-4edd-a9e9-62f2f489f041.jpg','file',1290,'jpg',1),
+('8dfa42c1-fdb4-4f4e-a53a-d45d62dbc936','2021-08-22 13:53:44.995000','/media/static/8dfa42c1-fdb4-4f4e-a53a-d45d62dbc936.jpg','file',2478,'jpg',1),
+('95024d25-0d4a-422c-b07e-e7cf12548279','2021-08-22 13:51:25.374000','/media/static/95024d25-0d4a-422c-b07e-e7cf12548279.jpg','file',2044,'jpg',1),
+('963f9593-a6d2-4a5d-ae07-87b7b9feab45','2021-08-22 13:55:59.070000','/media/static/963f9593-a6d2-4a5d-ae07-87b7b9feab45.jpg','file',3340,'jpg',1),
+('988dd7b0-5e8b-4707-a910-b9877970c071','2021-08-22 13:49:29.829000','/media/static/988dd7b0-5e8b-4707-a910-b9877970c071.png','file',87469,'png',1),
+('a1617322-8bc9-49d4-a6f7-b79c0fe4d30f','2021-08-22 13:52:41.328000','/media/static/a1617322-8bc9-49d4-a6f7-b79c0fe4d30f.jpg','file',1914,'jpg',1),
+('b5075993-78c4-4470-aa5e-99a0ba229162','2021-08-22 13:55:03.356000','/media/static/b5075993-78c4-4470-aa5e-99a0ba229162.jpg','file',2214,'jpg',1),
+('b915dbe3-1aaa-4d3f-b14f-f716a3bad457','2021-08-22 13:49:32.293000','/media/static/b915dbe3-1aaa-4d3f-b14f-f716a3bad457.png','file',3690,'png',1),
+('bedc7a79-05b9-40ac-ba26-ba312c5da2dd','2021-08-22 13:51:22.766000','/media/static/bedc7a79-05b9-40ac-ba26-ba312c5da2dd.jpg','file',1614,'jpg',1),
+('f31cfad6-07c9-48fc-a1ca-cfbba534e01b','2021-08-22 13:54:54.752000','/media/static/f31cfad6-07c9-48fc-a1ca-cfbba534e01b.jpg','file',2532,'jpg',1),
+('fd7ea8d3-a15b-4320-a0c4-227902fd700c','2021-08-22 13:52:38.364000','/media/static/fd7ea8d3-a15b-4320-a0c4-227902fd700c.jpg','file',2138,'jpg',1);
+/*!40000 ALTER TABLE `images` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!50503 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+
+DROP TABLE IF EXISTS `orders`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `orders` (
+  `id` bigint NOT NULL AUTO_INCREMENT,
+  `created_at` datetime(6) DEFAULT NULL,
+  `modified_at` datetime(6) DEFAULT NULL,
+  `note` varchar(255) DEFAULT NULL,
+  `price` bigint DEFAULT NULL,
+  `promotion` json DEFAULT NULL,
+  `quantity` int DEFAULT NULL,
+  `receiver_address` varchar(255) DEFAULT NULL,
+  `receiver_name` varchar(255) DEFAULT NULL,
+  `receiver_phone` varchar(255) DEFAULT NULL,
+  `size` int DEFAULT NULL,
+  `status` int DEFAULT NULL,
+  `total_price` bigint DEFAULT NULL,
+  `buyer` bigint DEFAULT NULL,
+  `created_by` bigint DEFAULT NULL,
+  `modified_by` bigint DEFAULT NULL,
+  `product_id` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `FKljvc97l19m7cnlopv8535hijx` (`buyer`),
+  KEY `FKtjwuphstqm46uffgc7l1r27a9` (`created_by`),
+  KEY `FKe0abpy849bl2ynw3468ksavvl` (`modified_by`),
+  KEY `FK787ibr3guwp6xobrpbofnv7le` (`product_id`),
+  CONSTRAINT `FK787ibr3guwp6xobrpbofnv7le` FOREIGN KEY (`product_id`) REFERENCES `product` (`id`),
+  CONSTRAINT `FKe0abpy849bl2ynw3468ksavvl` FOREIGN KEY (`modified_by`) REFERENCES `users` (`id`),
+  CONSTRAINT `FKljvc97l19m7cnlopv8535hijx` FOREIGN KEY (`buyer`) REFERENCES `users` (`id`),
+  CONSTRAINT `FKtjwuphstqm46uffgc7l1r27a9` FOREIGN KEY (`created_by`) REFERENCES `users` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+LOCK TABLES `orders` WRITE;
+/*!40000 ALTER TABLE `orders` DISABLE KEYS */;
+INSERT INTO `orders` VALUES 
+(1,'2021-08-22 14:14:17.135000','2021-08-22 14:17:03.103000','',1450000,NULL,1,'Ha nam','Dương','08353534',37,2,1800000,2,2,1,'Eq1H5L'),
+(2,'2021-08-22 14:14:17.135000','2021-08-22 14:17:03.103000','',1550000,NULL,1,'Ha noi','vinh','08353535',37,2,1800000,2,2,1,'Eq1H5L'),
+(3,'2021-08-22 14:14:17.135000','2021-08-22 14:17:03.103000','',1650000,NULL,1,'Ha tinh','hun','08353536',37,2,1800000,2,2,1,'Eq1H5L'),
+(4,'2021-08-22 14:14:17.135000','2021-08-22 14:17:03.103000','',1750000,NULL,1,'Hai duong','diu','08353537',37,2,1800000,2,2,1,'Eq1H5L'),
+(5,'2021-08-22 14:14:17.135000','2021-08-22 14:17:03.103000','',1850000,NULL,1,'Ha noi','maianh','08353538',37,2,1800000,2,2,1,'Eq1H5L'),
+(6,'2021-08-22 14:14:17.135000','2021-08-22 14:17:03.103000','',1950000,NULL,1,'Ha tay','huy','08353539',37,2,1800000,2,2,1,'Eq1H5L'),
+(7,'2021-08-22 14:14:17.135000','2021-08-22 14:17:03.103000','',1250000,NULL,1,'Ha nam','Dương','08353531',37,2,1800000,2,2,1,'Eq1H5L'),
+/*!40000 ALTER TABLE `orders` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+
+
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!50503 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `product`
+--
+
+DROP TABLE IF EXISTS `product`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `product` (
+  `id` varchar(255) NOT NULL,
+  `created_at` datetime(6) DEFAULT NULL,
+  `description` text,
+  `image_feedback` json DEFAULT NULL,
+  `images` json DEFAULT NULL,
+  `modified_at` datetime(6) DEFAULT NULL,
+  `name` varchar(300) NOT NULL,
+  `price` bigint DEFAULT NULL,
+  `sale_price` bigint DEFAULT NULL,
+  `slug` varchar(255) NOT NULL,
+  `status` int DEFAULT NULL,
+  `total_sold` bigint DEFAULT NULL,
+  `product_view` int DEFAULT NULL,
+  `brand_id` bigint DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `FKs6cydsualtsrprvlf2bb3lcam` (`brand_id`),
+  CONSTRAINT `FKs6cydsualtsrprvlf2bb3lcam` FOREIGN KEY (`brand_id`) REFERENCES `brand` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!50503 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+
+
+DROP TABLE IF EXISTS `product_category`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `product_category` (
+  `product_id` varchar(255) NOT NULL,
+  `category_id` bigint NOT NULL,
+  KEY `FKkud35ls1d40wpjb5htpp14q4e` (`category_id`),
+  KEY `FK2k3smhbruedlcrvu6clued06x` (`product_id`),
+  CONSTRAINT `FK2k3smhbruedlcrvu6clued06x` FOREIGN KEY (`product_id`) REFERENCES `product` (`id`),
+  CONSTRAINT `FKkud35ls1d40wpjb5htpp14q4e` FOREIGN KEY (`category_id`) REFERENCES `category` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!50503 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+
+
+DROP TABLE IF EXISTS `product_size`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `product_size` (
+  `product_id` varchar(255) NOT NULL,
+  `size` int NOT NULL,
+  `quantity` int DEFAULT NULL,
+  PRIMARY KEY (`product_id`,`size`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!50503 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+
+DROP TABLE IF EXISTS `promotion`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `promotion` (
+  `id` bigint NOT NULL AUTO_INCREMENT,
+  `coupon_code` varchar(255) DEFAULT NULL,
+  `created_at` datetime(6) DEFAULT NULL,
+  `discount_type` int DEFAULT NULL,
+  `discount_value` bigint DEFAULT NULL,
+  `expired_at` datetime(6) DEFAULT NULL,
+  `is_active` tinyint(1) DEFAULT NULL,
+  `is_public` tinyint(1) DEFAULT NULL,
+  `maximum_discount_value` bigint DEFAULT NULL,
+  `name` varchar(300) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `UK_acld676f1gyc04nofpb7t2ecn` (`coupon_code`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `promotion`
+--
+
+LOCK TABLES `promotion` WRITE;
+/*!40000 ALTER TABLE `promotion` DISABLE KEYS */;
+INSERT INTO `promotion` VALUES (1,'KH123','2021-08-22 13:57:01.646000',1,30,'2021-09-06 00:00:00.000000',1,1,150000,'20/11'),
+(2,'KH1234','2021-09-22 13:57:01.646000',1,30,'2021-09-06 00:00:00.000000',1,1,200000,'19/11');
+/*!40000 ALTER TABLE `promotion` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!50503 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+
+
+DROP TABLE IF EXISTS `statistic`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `statistic` (
+  `id` bigint NOT NULL AUTO_INCREMENT,
+  `created_at` datetime(6) DEFAULT NULL,
+  `profit` bigint DEFAULT NULL,
+  `quantity` int DEFAULT NULL,
+  `sales` bigint DEFAULT NULL,
+  `order_id` bigint DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `FKok7jp7mh6y9tghumc2do51ieq` (`order_id`),
+  CONSTRAINT `FKok7jp7mh6y9tghumc2do51ieq` FOREIGN KEY (`order_id`) REFERENCES `orders` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+LOCK TABLES `statistic` WRITE;
+/*!40000 ALTER TABLE `statistic` DISABLE KEYS */;
+INSERT INTO `statistic` VALUES (1,'2021-08-22 14:16:48.648000',650000,1,1300000,5);
+/*!40000 ALTER TABLE `statistic` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!50503 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+
+DROP TABLE IF EXISTS `users`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `users` (
+  `id` bigint NOT NULL AUTO_INCREMENT,
+  `address` varchar(255) DEFAULT NULL,
+  `avatar` varchar(255) DEFAULT NULL,
+  `created_at` datetime(6) DEFAULT NULL,
+  `email` varchar(200) NOT NULL,
+  `full_name` varchar(255) DEFAULT NULL,
+  `modified_at` datetime(6) DEFAULT NULL,
+  `password` varchar(255) NOT NULL,
+  `phone` varchar(255) DEFAULT NULL,
+  `roles` json NOT NULL,
+  `status` tinyint(1) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+
+LOCK TABLES `users` WRITE;
+/*!40000 ALTER TABLE `users` DISABLE KEYS */;
+INSERT INTO `users` VALUES (1,NULL,NULL,'2021-08-22 13:43:08.676000','admin@gmail.com','admin',NULL,'$2a$12$6vOrz9fOe1OFg5/9jzP8KeJEAIS4zjZe5RyuuPe6.pprqua3J/AUu','038439443','[\"ADMIN\", \"USER\"]',1)
+(3,NULL,NULL,'2021-08-22 14:13:47.852000','duongpvph20350@fpt.edu.vn','Duong',NULL,'$2a$12$xAgcACYzUTMsT2q4v93MUeHTWI1DN13i9.tN6kpK.CiazKhsRsb0y','0378246453','[\"USER\"]',1),
+(4,NULL,NULL,'2021-08-22 14:14:40.837000','maianh29hn@gmail.com','maianh',NULL,'$2a$12$.bH4k6xySdmmPDJYkXbQjOKqig4VpCl08uHY11WQRe/fIkno83cXm','0378246453','[\"USER\"]',1),
+
+/*!40000 ALTER TABLE `users` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
