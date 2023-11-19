@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{/layout/shop :: main-fragment(
+                                                                     ~{:: title},
+                                                                    'header',
+                                                                    'footer',
+                                                                     ~{:: #css-resources},
+                                                                     ~{:: #js-resources},
+                                                                     ~{:: #main-content}
+                                                                    )}">
+<head>
+    <meta charset="UTF-8">
+    <title>Liên hệ</title>
+    <th:block id="css-resources">
+
+    </th:block>
+</head>
+<body>
+<main class="main" id="main-content">
+    <nav aria-label="breadcrumb" class="breadcrumb-nav">
+        <div class="container">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="/"><i class="icon-home"></i></a></li>
+                <li class="breadcrumb-item active" aria-current="page">Liên hệ</li>
+            </ol>
+        </div><!-- End .container -->
+    </nav>
+
+    <div class="container">
+        <h5 class="light-title"><strong>Cửa hàng của Biti's !</strong></h5>
+        <div id="map"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3723.8836968727605!2d105.74640787500061!3d21.03733908748429!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31345515f14a641f%3A0xe7f2a647f98416cb!2sFPT%20Polytechnic!5e0!3m2!1sen!2s!4v1696820790226!5m2!1sen!2s" width="1200" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div><!-- End #map -->
+
+        <div class="row">
+            <div class="col-md-8">
+                <h5 class="light-title">  <i class="icon-mail-alt"></i><strong>Để lại lời nhắn cho chúng tôi !</strong></h5>
+
+                <form action="#">
+                    <div class="form-group required-field">
+                        <input type="text" class="form-control" placeholder="Họ Và Tên Của Bạn" aria-label="City">
+                    </div><!-- End .form-group -->
+
+                    <div class="form-group required-field">
+                        <input type="text" class="form-control" placeholder="Số Điện Thoại Của Bạn" aria-label="City">
+                    </div><!-- End .form-group -->
+
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Email Của Bạn" aria-label="City">
+                    </div><!-- End .form-group -->
+
+                    <div class="form-group required-field">
+
+                        <textarea cols="30" rows="1" id="contact-message" placeholder="Nội Dung..." class="form-control" name="contact-message" required></textarea>
+                    </div><!-- End .form-group -->
+
+                    <div class="form-footer">
+                        <button type="submit" class="btn btn-primary">Gửi Lời Nhắn</button>
+                    </div><!-- End .form-footer -->
+                </form>
+            </div><!-- End .col-md-8 -->
+
+            <div class="col-md-4">
+                <h5 class="light-title"><strong>Thông tin liên hệ</strong></h5>
+
+                <div class="contact-info">
+                    <div>
+                        <i class="icon-mobile"></i>
+                        <p><a href="tel:">0398194211</a></p>
+                    </div>
+                    <div>
+                        <i class="icon-mail-alt"></i>
+                        <p><a href="mailto:#">sd68datn@fpt.edu.vn</a></p>
+                    </div>
+                </div><!-- End .contact-info -->
+            </div><!-- End .col-md-4 -->
+        </div><!-- End .row -->
+    </div><!-- End .container -->
+
+    <div class="mb-8"></div><!-- margin -->
+</main><!-- End .main -->
+<th:block id="js-resources">
+
+</th:block>
+</body>
+</html>

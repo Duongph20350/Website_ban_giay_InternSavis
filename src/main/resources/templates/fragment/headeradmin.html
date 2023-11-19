@@ -1,0 +1,49 @@
+<th:block th:fragment="header">
+    <header class="header">
+        <div class="header-middle">
+            <div class="container">
+                <div class="header-left col-lg-2 w-auto pl-0">
+                    <button class="mobile-menu-toggler text-primary mr-2" type="button">
+                        <i class="icon-menu"></i>
+                    </button>
+                    <a href="/" class="logo">
+                        <h5>Biti's Store</h5>
+                        </a>
+                    </a>
+                </div><!-- End .header-left -->
+
+                <div class="header-right w-lg-max">
+                    <div class="header-icon header-icon header-search header-search-inline header-search-category w-lg-max text-right">
+                        <a href="#" class="search-toggle search-button" role="button"><i class="icon-search-3"></i></a>
+                            <div class="header-search-wrapper">
+                                <input class="form-control search-input"  placeholder="Bạn muốn tìm kiếm sản phẩm .." required>
+                                <button class="btn icon-search-3 p-0 search-button" type="submit"></button>
+                            </div><!-- End .header-search-wrapper -->
+                    </div><!-- End .header-search -->
+
+
+
+                    <a href="" data-toggle="modal" data-target="#exampleModal" class="header-icon account-setting"><i class="icon-user-2"></i></a>
+
+                </div><!-- End .header-right -->
+            </div><!-- End .container -->
+        </div><!-- End .header-middle -->
+
+        <div class="header-bottom sticky-header d-none d-lg-block">
+            <div class="container">
+                <nav class="main-nav w-100">
+                    <ul class="menu">
+                        <li class="active">
+                            <a href="/">Trang chủ</a>
+                        </li>
+                        <li ><a href="/san-pham">Sản phẩm</a></li>
+                        <li ><a href="/lien-he" class="px-4">Liên hệ</a></li>
+
+
+
+                    </ul>
+                </nav>
+            </div><!-- End .container -->
+        </div><!-- End .header-bottom -->
+    </header><!-- End .header -->
+</th:block>
